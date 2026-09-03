@@ -9,7 +9,7 @@
 
 ## 一、为什么用 mamba 管 Python？
 
-在 WSL（Ubuntu）中直接 `apt install python3` 虽然简单，但 AI 项目常需要不同 Python 版本和依赖包，混装容易冲突。**Miniforge**（conda-forge 官方轻量版，默认包含 python、conda 和 mamba）通过"环境"为每个项目隔离一套独立的软件包。官方定义：环境是"自包含的隔离空间，可以安装特定版本的软件包、依赖库和 Python 版本"。
+在 WSL（Ubuntu）中直接 `apt install python3` 虽然简单，但不同项目可能需要不同 Python 版本和依赖包，混装容易冲突。**Miniforge**（conda-forge 官方轻量版，默认包含 python、conda 和 mamba）通过"环境"为每个项目隔离一套独立的软件包。官方定义：环境是"自包含的隔离空间，可以安装特定版本的软件包、依赖库和 Python 版本"。
 
 > **mamba 与 conda**：mamba 是 conda 的高速替代品，命令语法与 conda 完全一致，但依赖解析速度提升数十倍。Miniforge 默认已安装 mamba，推荐优先使用。如果你习惯 conda，所有 mamba 命令都可以替换为 conda。
 
@@ -63,7 +63,6 @@ default_channels:
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
 custom_channels:
   conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 ```
 
 然后清除索引缓存并测试：`mamba clean -i` 后执行 `mamba create -n myenv numpy`。
@@ -83,9 +82,9 @@ pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple 包名
 
 注意：URL 中的 `simple` 不能少，且必须用 https。清华源更新频率高，阿里云源网络稳定性好，可根据实际情况选择。
 
-## 五、Python 为什么适合 AI + 验证
+## 五、验证环境是否生效
 
-PyTorch 等主流框架以 Python 为第一语言（官方安装页要求 Python 3.10+，`pip3 install torch torchvision torchaudio` 即可装）。完成以上步骤后验证：
+完成以上步骤后验证：
 
 ```bash
 mamba --version && python --version   # 显示 mamba 与 Python 版本
@@ -96,9 +95,9 @@ pip install numpy                      # 测试 pip 镜像是否生效（速度�
 ## 小结与练习
 
 1. 在 WSL 中安装 Miniforge，并确认提示符出现 `(base)`。
-2. 创建名为 `ai-env` 的环境（Python 3.11），激活后安装 `numpy`，观察安装速度。
+2. 创建名为 `myenv` 的环境（Python 3.11），激活后安装 `numpy`，观察安装速度。
 3. 按本章方法配置 mamba/conda 与 pip 的清华镜像，重跑练习 2 对比下载速度。
-4. 用 `mamba env export > environment.yml` 导出你的环境，再用 `mamba env remove -n ai-env --all` 删除后重建，验证配置文件能否复现环境。
+4. 用 `mamba env export > environment.yml` 导出你的环境，再用 `mamba env remove -n myenv --all` 删除后重建，验证配置文件能否复现环境。
 
 ## 参考官方文档
 
@@ -108,7 +107,6 @@ pip install numpy                      # 测试 pip 镜像是否生效（速度�
 - [Anaconda 软件仓库帮助 - 清华 TUNA 镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
 - [PyPI 软件仓库帮助 - 清华 TUNA 镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
 - [阿里云 PyPI 镜像源](https://mirrors.aliyun.com/pypi/simple/)
-- [PyTorch 官网（Python 版本要求与安装命令）](https://pytorch.org/)
 
 ## 术语中英对照
 
