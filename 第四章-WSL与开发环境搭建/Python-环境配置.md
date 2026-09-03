@@ -41,6 +41,10 @@ conda remove -n myenv --all               # 删除环境
 
 官方源服务器在境外，国内直连常超时。改为国内镜像后，下载速度可提升数十倍。
 
+**国内主流镜像源**：
+- **清华 TUNA 镜像站**：清华大学信息化技术中心维护，同步速度快、更新及时，是国内最常用的开源软件镜像源之一，适用于 conda 和 pip。
+- **阿里云镜像站**：阿里云提供的公共镜像服务，稳定性高，适合对网络质量要求较高的用户，主要用于 pip。
+
 ### 1. conda 镜像（清华 TUNA，按官方帮助页）
 
 编辑 `~/.condarc`（Linux 下该文件位于用户主目录）：
@@ -60,15 +64,20 @@ custom_channels:
 
 然后清除索引缓存并测试：`conda clean -i` 后执行 `conda create -n myenv numpy`。
 
-### 2. pip 镜像（清华 TUNA 官方帮助页）
+### 2. pip 镜像（清华 TUNA / 阿里云）
 
 ```bash
+# 使用清华 TUNA 镜像（推荐）
 pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+
+# 或使用阿里云镜像
+# pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+
 # 临时使用（不写入配置）：
 pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple 包名
 ```
 
-注意：URL 中的 `simple` 不能少，且必须用 https。备选：阿里云 PyPI 源 `https://mirrors.aliyun.com/pypi/simple/`。
+注意：URL 中的 `simple` 不能少，且必须用 https。清华源更新频率高，阿里云源网络稳定性好，可根据实际情况选择。
 
 ## 五、Python 为什么适合 AI + 验证
 
