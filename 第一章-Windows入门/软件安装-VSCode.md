@@ -64,7 +64,7 @@ code .
 ### Python 开发
 
 - **Python** —— Python 开发核心扩展：代码补全、调试、代码检查、格式化、单元测试与环境切换（微软官方，约 2.32 亿安装）。**安装时无需单独装 Pylance**：官方说明 Pylance（高性能语言服务器）与 Python Debugger 会由 Python 扩展自动安装，还新增了 Python Environments 环境管理扩展。
-- **Jupyter** —— 在 VS Code 中打开和运行 Jupyter Notebook（.ipynb），支持单元格运行、图表渲染，后续学数据分析/机器学习会用到（微软官方，约 1.08 亿安装）。需要在 WSL 中先装好 `jupyter` 包（`conda install jupyter`）。
+- **Jupyter** —— 在 VS Code 中打开和运行 Jupyter Notebook（.ipynb），支持单元格运行、图表渲染，后续学数据分析/机器学习会用到（微软官方，约 1.08 亿安装）。需要在 WSL 中先装好 `jupyter` 包（`mamba install jupyter` 或 `conda install jupyter`）。
 
 ### Git 协作
 
