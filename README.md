@@ -60,7 +60,7 @@
 - [WSL 安装](./第四章-WSL与开发环境搭建/WSL-安装.md) —— 虚拟化检查、BIOS 设置、Windows Terminal、一条命令装好 WSL
 - [WSL 使用](./第四章-WSL与开发环境搭建/WSL-使用.md) —— 进入 WSL 终端、apt 更新软件源与安装软件
 - [终端与命令行基础](./第四章-WSL与开发环境搭建/终端与命令行基础.md) —— bash 常用命令总结：目录/文件/搜索/管道/重定向/快捷键
-- [Python 环境配置](./第四章-WSL与开发环境搭建/Python-环境配置.md) —— 安装 Miniconda、conda 环境管理、清华镜像源加速、Python 为什么适合 AI
+- [Python 环境配置](./第四章-WSL与开发环境搭建/Python-环境配置.md) —— 安装 Miniforge、conda 环境管理、清华镜像源加速、Python 为什么适合 AI
 - [在 WSL 内安装 OpenCode](./第四章-WSL与开发环境搭建/在WSL内安装OpenCode.md) —— 安装 AI 编程代理 OpenCode、配置模型提供商、能力边界与同类产品
 - [常见报错检查](./第四章-WSL与开发环境搭建/常见报错检查.md) —— WSL / apt / conda / OpenCode 报错快速排查
 - [常用快捷键](./第四章-WSL与开发环境搭建/常用快捷键.md) —— 终端与 Windows Terminal 快捷键

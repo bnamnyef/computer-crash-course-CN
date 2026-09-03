@@ -22,7 +22,7 @@
 | apt | Ubuntu 的软件包管理器，负责装/卸软件 | 命令行版的应用商店 |
 | 软件源 | 存放软件包的服务器仓库（apt 从哪里拿软件） | 商店的货架 |
 | Python | 最流行的编程语言之一，AI 生态的首选语言 | — |
-| Miniconda / conda | Python 环境管理器：为每个项目隔离一套独立环境 | 每个项目一间独立房间 |
+| Miniforge / conda | Python 环境管理器：为每个项目隔离一套独立环境 | 每个项目一间独立房间 |
 | 虚拟环境 | 互相隔离的 Python 环境，依赖互不干扰 | 项目专属小房间 |
 | 镜像源 | 官方下载源的国内加速副本 | 家门口的分店 |
 | OpenCode | 终端里的 AI 编程代理，用对话就能让它帮你写代码 | 坐在终端里的 AI 程序员 |
@@ -32,7 +32,7 @@
 1. [WSL 安装](./WSL-安装.md) —— 检查虚拟化、装 Windows Terminal、一条命令装好 WSL
 2. [WSL 使用](./WSL-使用.md) —— 进入 Linux 终端，用 apt 更新软件源、装软件
 3. [终端与命令行基础](./终端与命令行基础.md) —— 把常用操作从"鼠标"翻译成"命令"
-4. [Python 环境配置](./Python-环境配置.md) —— 装 Miniconda、配置国内镜像源加速
+4. [Python 环境配置](./Python-环境配置.md) —— 装 Miniforge、配置国内镜像源加速
 5. [在 WSL 内安装 OpenCode](./在WSL内安装OpenCode.md) —— 装好你的第一个 AI 编程助手
 6. [常见报错检查](./常见报错检查.md) —— 本章报错（WSL / apt / conda / OpenCode）快速排查表
 7. [常用快捷键](./常用快捷键.md) —— 终端与 Windows Terminal 快捷键

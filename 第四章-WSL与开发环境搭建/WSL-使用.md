@@ -4,7 +4,7 @@
 
 - 随时进入和退出 WSL 的 Ubuntu 终端
 - 用 `apt` 更新软件源、升级并安装软件
-- 知道安装完 Miniconda 后，如何配置 Python 环境（下一步指向）
+- 知道安装完 Miniforge 后，如何配置 Python 环境（下一步指向）
 
 ## 一、进入 WSL 终端
 
@@ -36,9 +36,9 @@ sudo apt install 软件包名
 
 ## 三、下一步：配置 Python 环境
 
-Python 环境（Miniconda 安装、conda 环境管理、国内镜像源加速）已整理为独立章节，接着往下学：
+Python 环境（Miniforge 安装、conda 环境管理、国内镜像源加速）已整理为独立章节，接着往下学：
 
-- [Python 环境配置（WSL + Miniconda + 国内镜像）](./Python-环境配置.md)
+- [Python 环境配置（WSL + Miniforge + 国内镜像）](./Python-环境配置.md)
 
 ## 小结与练习
 

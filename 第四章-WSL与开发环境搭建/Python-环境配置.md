@@ -1,28 +1,28 @@
-# Python 环境配置（WSL + Miniconda + 国内镜像）
+# Python 环境配置（WSL + Miniforge + 国内镜像）
 
 ### 本章学完你能做什么
 
-- 在 WSL 中安装 Miniconda（Python 环境管理器）
+- 在 WSL 中安装 Miniforge（Python 环境管理器）
 - 用 conda 为每个项目创建互相隔离的 Python 环境
 - 配置清华 TUNA 国内镜像源，让 conda/pip 下载速度提升数十倍
 - 验证 Python 环境与镜像配置是否生效
 
 ## 一、为什么用 conda 管 Python？
 
-在 WSL（Ubuntu）中直接 `apt install python3` 虽然简单，但 AI 项目常需要不同 Python 版本和依赖包，混装容易冲突。**Miniconda**（Anaconda 官方轻量版，默认只含 python 和 conda）通过"环境"为每个项目隔离一套独立的软件包。官方定义：环境是"自包含的隔离空间，可以安装特定版本的软件包、依赖库和 Python 版本"。
+在 WSL（Ubuntu）中直接 `apt install python3` 虽然简单，但 AI 项目常需要不同 Python 版本和依赖包，混装容易冲突。**Miniforge**（conda-forge 官方轻量版，默认只含 python 和 conda）通过"环境"为每个项目隔离一套独立的软件包。官方定义：环境是"自包含的隔离空间，可以安装特定版本的软件包、依赖库和 Python 版本"。
 
-## 二、安装 Miniconda（官方指南）
+## 二、安装 Miniforge（官方指南）
 
 在 WSL 终端执行（x86_64 架构）：
 
 ```bash
-curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash ~/Miniconda3-latest-Linux-x86_64.sh
+curl -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
+bash ~/Miniforge3-Linux-x86_64.sh
 ```
 
-交互过程：按回车查看许可协议 → 输入 `yes` 同意 → 回车接受默认安装位置（`/home/你的用户名/miniconda3`）→ 询问是否初始化时输入 `yes`。完成后刷新终端：`source ~/.bashrc`，提示符出现 `(base)` 即成功。
+交互过程：按回车查看许可协议 → 输入 `yes` 同意 → 回车接受默认安装位置（`/home/你的用户名/miniforge3`）→ 询问是否初始化时输入 `yes`。完成后刷新终端：`source ~/.bashrc`，提示符出现 `(base)` 即成功。
 
-> 国内下载安装包慢的话，可从清华镜像下载：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/`（TUNA 官方帮助页提供）。
+> 国内下载安装包慢的话，可从清华镜像下载：`https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniforge/`（TUNA 官方帮助页提供）。
 
 ## 三、conda 环境管理（官方文档）
 
@@ -82,14 +82,14 @@ pip install numpy                      # 测试 pip 镜像是否生效（速度�
 
 ## 小结与练习
 
-1. 在 WSL 中安装 Miniconda，并确认提示符出现 `(base)`。
+1. 在 WSL 中安装 Miniforge，并确认提示符出现 `(base)`。
 2. 创建名为 `ai-env` 的环境（Python 3.11），激活后安装 `numpy`，观察安装速度。
 3. 按本章方法配置 conda 与 pip 的清华镜像，重跑练习 2 对比下载速度。
 4. 用 `conda env export > environment.yml` 导出你的环境，再用 `conda env remove -n ai-env --all` 删除后重建，验证配置文件能否复现环境。
 
 ## 参考官方文档
 
-- [Installing Miniconda（Linux 安装指南）- Anaconda 官方文档](https://www.anaconda.com/docs/getting-started/miniconda/install/linux-install)
+- [Installing Miniforge（Linux 安装指南）- conda-forge 官方文档](https://github.com/conda-forge/miniforge/releases)
 - [Environments（conda 环境管理）- Anaconda 官方文档](https://www.anaconda.com/docs/getting-started/working-with-conda/environments)
 - [Anaconda 软件仓库帮助 - 清华 TUNA 镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)
 - [PyPI 软件仓库帮助 - 清华 TUNA 镜像站](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
