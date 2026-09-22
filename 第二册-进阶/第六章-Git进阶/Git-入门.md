@@ -1,10 +1,12 @@
 # Git 入门
 
 > 本章属于「计算机使用速成」第六章。学完本章，你将能用 Git 记录代码历史、自由回退。想学分支、连接 GitHub 等进阶操作，接着看[《Git 进阶》](./Git-进阶.md)。
+>
+> **平台说明**：Git 命令两平台完全通用，仅「安装」一步分平台（Windows 在 WSL 里用 apt，macOS 用 Xcode 命令行工具或 Homebrew）。
 
 ### 本章学完你能做什么
 
-- 在 WSL 中安装 Git 并完成首次配置
+- 在 WSL（Windows）或自带终端（macOS）中安装 Git 并完成首次配置
 - 用 `add`/`commit` 记录每次改动，用 `log`/`diff` 查看历史
 - 用 `restore`/`reset` 回退错误的改动
 - 知道下一步可以学什么（分支、连接 GitHub 等进阶内容）
@@ -21,15 +23,24 @@ Git 是一个**分布式版本控制系统**（Distributed Version Control Syste
 
 它是当前程序员最离不开的工具之一——几乎每个开源项目都用它（Pro Git 官方手册定义："Git 是一个免费的、开源的分布式版本控制系统"）。
 
-## 二、在 WSL 中安装
+## 二、安装 Git
 
-在 WSL（Ubuntu）终端里用系统包管理器安装，一条命令搞定：
+**Windows 用户（WSL）**：在 WSL（Ubuntu）终端里用系统包管理器安装，一条命令搞定：
 
 ```bash
 sudo apt update
 sudo apt install git
 git --version   # 看到版本号即安装成功
 ```
+
+**macOS 用户**：系统通常预装了 Git（终端运行 `git --version` 查看）。如果提示找不到，任选一种方式安装：
+
+```bash
+xcode-select --install      # 方式一（推荐）：安装 Xcode 命令行工具，按弹窗提示完成
+brew install git            # 方式二：已装 Homebrew 时（见第四章）
+```
+
+安装后同样用 `git --version` 验证。
 
 ## 三、首次配置
 
@@ -86,7 +97,7 @@ git reset --hard HEAD~1
 
 ## 小结与练习
 
-1. 在 WSL 中安装 Git 并配置用户名邮箱，运行 `git config --list` 确认生效。
+1. 安装 Git（Windows 在 WSL、macOS 在自带终端）并配置用户名邮箱，运行 `git config --list` 确认生效。
 2. 新建一个项目文件夹，`git init` 后创建文件、`git add .`、`git commit -m "first commit"`，用 `git log --oneline` 查看。
 3. 修改文件后用 `git restore` 丢弃改动，观察 `git status` 的变化。
 4. 上面的流程已经顺手了吗？继续学[《Git 进阶》](./Git-进阶.md)：分支、连接 GitHub、.gitignore、用 OpenCode 操作 Git。
@@ -96,6 +107,7 @@ git reset --hard HEAD~1
 - Pro Git 中文版（git-scm.com 官方书籍）：[git-scm.com/book/zh](https://git-scm.com/book/zh/v2)
   - [1.5 安装 Git](https://git-scm.com/book/zh/v2/%e8%b5%b7%e6%ad%a5-%e5%ae%89%e8%a3%85-Git)、[1.6 初次运行 Git 前的配置](https://git-scm.com/book/zh/v2/%e8%b5%b7%e6%ad%a5-%e5%88%9d%e6%ac%a1%e8%bf%90%e8%a1%8c-Git-%e5%89%8d%e7%9a%84%e9%85%8d%e7%bd%ae)
   - [2.2 记录每次更新到仓库](https://git-scm.com/book/zh/v2/Git-%e5%9f%ba%e7%a1%80-%e8%ae%b0%e5%bd%95%e6%af%8f%e6%ac%a1%e6%9b%b4%e6%96%b0%e5%88%b0%e4%bb%93%e5%ba%93)、[2.3 查看提交历史](https://git-scm.com/book/zh/v2/Git-%e5%9f%ba%e7%a1%80-%e6%9f%a5%e7%9c%8b%e6%8f%90%e4%ba%a4%e5%8e%86%e5%8f%b2)、[2.4 撤消操作](https://git-scm.com/book/zh/v2/Git-%e5%9f%ba%e7%a1%80-%e6%92%a4%e6%b6%88%e6%93%8d%e4%bd%9c)
+- [Git 官方下载页（macOS）](https://git-scm.com/download/mac)
 
 ## 术语中英对照
 

@@ -1,12 +1,14 @@
-# 在 WSL 内安装 OpenCode
+# 安装 OpenCode（WSL / macOS）
 
-> **前置条件**：请先完成[《Python 环境配置》](../第四章-WSL与开发环境搭建/Python-环境配置.md)，安装好 Miniforge/mamba/conda。OpenCode 在执行 Python 项目时需要调用已安装的 Python 环境。
+> **平台说明**：Windows 用户按正文在 WSL 里安装；macOS 用户在自带终端里安装（见第二节「macOS 用户」小节），并跳过第三节（访问 Windows 文件系统，WSL 专属）。
+>
+> **前置条件**：请先完成[《Python 环境配置》](../第四章-WSL与开发环境搭建/Python-环境配置.md)，安装好 Miniforge/mamba/conda（macOS 用户见 [《Python 环境配置（macOS 版）》](../第四章-WSL与开发环境搭建/Python-环境配置-macOS.md)）。OpenCode 在执行 Python 项目时需要调用已安装的 Python 环境。
 
 ### 本章学完你能做什么
 
-- 你会用官方安装脚本在 WSL 里装好 OpenCode，并用 `opencode --version` 验证成功。
+- 你会用官方安装方式在 WSL 或 macOS 里装好 OpenCode，并用 `opencode --version` 验证成功。
 - 你能进入任意项目启动 OpenCode，并用 `/init` 生成项目的 `AGENTS.md` 说明文件。
-- 你能通过 `/mnt/c` 等路径在 OpenCode 中访问 Windows 盘上的项目文件。
+- 你能通过 `/mnt/c` 等路径在 OpenCode 中访问 Windows 盘上的项目文件（Windows 用户）。
 - 你会通过 `/connect` 配置 AI 提供商和 API 密钥，再用 `/models` 挑选合适的模型。
 - 你能用 Plan 模式先出方案、Build 模式动手改代码，不满意时用 `/undo` 回退。
 - 你会清楚 OpenCode 擅长什么、不擅长什么，知道哪些环节需要自己把关。
@@ -15,25 +17,35 @@
 
 OpenCode 是一款**开源的 AI 编程代理（AI coding agent）**。根据官方文档（opencode.ai/docs），它提供终端界面（TUI）、桌面应用和 IDE 扩展三种形态，核心使用方式是：在终端里用自然语言描述需求，OpenCode 自主完成读代码、改代码、运行命令、搜索文件等操作，以「代理模式」替你干活，而不是只做被动问答。它基于 AI SDK 支持 **75+ 家模型提供商**（OpenAI、Anthropic、DeepSeek 等），配合 Plan 模式（先规划再动手）、`/undo` 撤销、MCP 外部工具集成等能力，是当前最受关注的开源编码代理之一。
 
-官方文档明确建议：**Windows 用户使用 WSL 获得最佳体验**——性能更好、兼容性最完整。本节就来完成安装与 AI 配置。
+官方文档明确建议：**Windows 用户使用 WSL 获得最佳体验**——性能更好、兼容性最完整；**macOS 用户直接使用系统自带终端**即可。本节就来完成安装与 AI 配置。
 
 ## 二、安装 OpenCode
 
-打开 WSL 的 Ubuntu 终端，运行官方安装脚本：
+**Windows 用户**：打开 WSL 的 Ubuntu 终端，运行官方安装脚本：
 
 ```bash
 curl -fsSL https://opencode.ai/install | bash
 ```
 
-> 其他安装方式（官方文档提供）：Node.js 用户可运行 `npm install -g opencode-ai`；macOS/Linux 可用 `brew install anomalyco/tap/opencode`。
+> 其他安装方式（官方文档提供）：Node.js 用户可运行 `npm install -g opencode-ai`。
 
-安装完成后验证：
+**macOS 用户**：打开自带「终端」，任选一种方式：
+
+```bash
+brew install anomalyco/tap/opencode   # 方式一：Homebrew（推荐，需先装好 Homebrew）
+curl -fsSL https://opencode.ai/install | bash   # 方式二：官方脚本
+npm install -g opencode-ai            # 方式三：已装 Node.js 时
+```
+
+安装完成后验证（两平台相同）：
 
 ```bash
 opencode --version
 ```
 
-## 三、访问 Windows 文件系统（/mnt/c）
+## 三、访问 Windows 文件系统（/mnt/c，仅 Windows/WSL）
+
+> macOS 用户跳过本节：你的项目直接放在主目录（如 `~/projects/项目名`）即可，不存在跨系统访问问题。
 
 WSL 把 Windows 的磁盘「挂载」在 `/mnt/` 目录下：C 盘是 `/mnt/c`，D 盘是 `/mnt/d`，依此类推。因此在 WSL 终端（以及 OpenCode 内部执行的命令）里，可以直接用 Linux 路径访问 Windows 上的文件和项目：
 
@@ -57,7 +69,7 @@ opencode
 
 ## 四、进入项目并初始化
 
-在 WSL 中进入你的项目文件夹（没有项目就新建一个），然后启动 OpenCode：
+在终端中进入你的项目文件夹（没有项目就新建一个；Windows 用户在 WSL 终端、macOS 用户在自带终端），然后启动 OpenCode：
 
 ```bash
 cd ~/my-project
@@ -207,7 +219,7 @@ source ~/.zshrc
 
 ## 小结与练习
 
-- **练习**：在 WSL 终端运行 `curl -fsSL https://opencode.ai/install | bash` 安装 OpenCode，再用 `opencode --version` 确认安装成功。
+- **练习**：在终端里运行安装命令（Windows：`curl -fsSL https://opencode.ai/install | bash`；macOS：`brew install anomalyco/tap/opencode` 或官方脚本），再用 `opencode --version` 确认安装成功。
 - **练习**：进入一个测试项目运行 `opencode`，输入 `/init`，打开生成的 `AGENTS.md` 看看里面记录了什么。
 - **自查**：`/connect` 和 `/models` 分别解决什么问题？API 密钥保存在哪个文件里？
 - **自查**：Plan 模式和 Build 模式的区别是什么？什么情况下应该先用 Plan 模式？

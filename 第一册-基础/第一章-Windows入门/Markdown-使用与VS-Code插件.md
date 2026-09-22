@@ -1,5 +1,7 @@
 # Markdown 使用与 VS Code 插件
 
+> 本篇两平台通用。文中的 VS Code 快捷键以 Windows 写法给出，macOS 用户把 `Ctrl` 换成 `Cmd` 即可（如 `Ctrl+Shift+V` → `Cmd+Shift+V`）。
+
 ### 本章学完你能做什么
 
 - 你能说清楚 Markdown 是什么，以及 CommonMark、GFM 这两个规范是什么关系；

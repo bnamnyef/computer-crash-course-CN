@@ -1,24 +1,33 @@
 # VS Code 安装与使用：「项目管理」式开发
 
-VS Code（Visual Studio Code）是微软出品的免费代码编辑器。本课安装它并与 WSL 配合，重点学会**以项目（文件夹）为单位管理代码，而不是零散地打开单个文件**。
+VS Code（Visual Studio Code）是微软出品的免费代码编辑器。本课安装它，重点学会**以项目（文件夹）为单位管理代码，而不是零散地打开单个文件**。Windows 用户会把它与 WSL 配合使用；macOS 用户直接在本机使用（见文中「macOS 用户」小节）。
 
 ### 本章学完你能做什么
 
-- 你会下载安装 VS Code，并正确勾选 **Add to PATH** 选项；
-- 你会安装 WSL 扩展，从 WSL 终端用 `code .` 打开项目文件夹；
+- 你会下载安装 VS Code：Windows 正确勾选 **Add to PATH**，macOS 用 `.dmg` 拖入「应用程序」并安装 `code` 命令；
+- 你会安装 WSL 扩展，从 WSL 终端用 `code .` 打开项目文件夹（Windows 用户）；
 - 你能以"项目管理"方式使用工作区、资源管理器和内置终端，而不是零散打开单个文件；
 - 你会安装常用插件（中文语言包、Python、GitLens 等），并会用命令行 `code --install-extension` 安装；
-- 你会确认 VS Code 已连接 WSL 环境（左下角显示「WSL: Ubuntu」）。
+- Windows 用户会确认 VS Code 已连接 WSL 环境（左下角显示「WSL: Ubuntu」）；macOS 用户会确认 `code` 命令可用。
 
-## 一、安装 VS Code 与 WSL 扩展
+## 一、安装 VS Code（Windows 用户）
 
 1. 到官网 `https://code.visualstudio.com/download` 下载 Windows 安装包并安装。
 2. **重要**：安装时在「选择附加任务」界面勾选 **Add to PATH**（这样才可以在 WSL 终端里用 `code` 命令）。
 3. 打开 VS Code，点击左侧「扩展」图标（或按 `Ctrl+Shift+X`），搜索安装 **WSL** 扩展（发布者为 Microsoft）。它能让 VS Code 直接以 WSL 作为开发环境，在 Windows 界面里编辑 Linux 里的文件。
 
-## 二、从 WSL 终端打开项目文件夹
+### macOS 用户：安装 VS Code
 
-打开 WSL 终端，进入项目目录后输入：
+1. 到官网 `https://code.visualstudio.com/download` 下载 macOS 版（Universal 通用版，或按芯片选 Apple Silicon / Intel），得到 `.dmg` 文件；
+2. 双击打开 `.dmg`，把 **Visual Studio Code.app** 拖入「应用程序」文件夹；
+3. 打开 VS Code，按 `Cmd+Shift+P` 打开命令面板，输入 `shell command`，运行 **Shell Command: Install 'code' command in PATH**，这样终端里就能用 `code` 命令；
+4. 如果之后终端里提示找不到 `code`，重启终端窗口再试。macOS 用户**不需要安装 WSL 扩展**，VS Code 直接在本机运行。
+
+> 官方步骤（含手动配置 PATH 的方法）：[Installing Visual Studio Code on macOS](https://code.visualstudio.com/docs/setup/mac)。
+
+## 二、从终端打开项目文件夹
+
+**Windows（WSL）**：打开 WSL 终端，进入项目目录后输入：
 
 ```bash
 cd ~/my-project
@@ -26,6 +35,8 @@ code .
 ```
 
 首次运行会自动在 WSL 内安装 VS Code Server（仅需一次）。稍等片刻后新窗口出现，**左下角显示「WSL: Ubuntu」标识**，说明当前已连接到 WSL 环境——此时 VS Code 里的所有操作（编辑、运行、终端）都发生在 Linux 中。
+
+**macOS**：打开「终端」，进入项目目录后输入同样的命令（`cd ~/my-project`、`code .`）；VS Code 直接在本机打开该文件夹，没有「WSL: Ubuntu」标识，属正常现象。
 
 ## 三、以「项目管理」方式使用 VS Code
 
@@ -43,15 +54,17 @@ code .
 
 **3. 使用内置终端**
 
-按 `Ctrl + \``（反引号）打开集成终端。由于已连接 WSL，**终端自动运行在 Linux 中**，可以直接执行 `python`、`pip`、`opencode` 等命令，无需切换窗口。
+按 `Ctrl + \``（反引号）打开集成终端（macOS 为 `Cmd + \``）。Windows 上由于已连接 WSL，**终端自动运行在 Linux 中**；macOS 上终端直接运行在本机。两者都可以直接执行 `python`、`pip`、`opencode` 等命令，无需切换窗口。
 
 **4. 安装扩展**
 
-按 `Ctrl+Shift+X` 打开扩展面板安装所需扩展（如 Python、中文语言包等）。连接 WSL 后，扩展会自动安装到 WSL 侧，确保运行环境一致。
+按 `Ctrl+Shift+X`（macOS 为 `Cmd+Shift+X`）打开扩展面板安装所需扩展（如 Python、中文语言包等）。Windows 连接 WSL 后，扩展会自动安装到 WSL 侧，确保运行环境一致；macOS 则安装在本机。
 
 ## 四、后续课程会用到的常用插件
 
 > 以下插件均已在 VS Code Marketplace 核实（2026 年 8 月），安装量数据来自官方页面。
+>
+> 快捷键在 macOS 上为 `Cmd` 组合（如 `Cmd+Shift+P`、`Cmd+Shift+X`），与 Windows 的 `Ctrl` 一一对应，下文不再重复标注。
 
 ### 中文环境
 
@@ -59,12 +72,12 @@ code .
 
 ### WSL 与远程开发
 
-- **WSL** —— 让 VS Code 直接连接 WSL 里的 Linux 环境，所有命令、终端、扩展都在 Linux 侧运行（微软官方，约 4029 万安装）。装好后在 WSL 终端输入 `code .` 即可打开项目。
+- **WSL** —— 让 VS Code 直接连接 WSL 里的 Linux 环境，所有命令、终端、扩展都在 Linux 侧运行（微软官方，约 4029 万安装）。装好后在 WSL 终端输入 `code .` 即可打开项目。**仅 Windows 用户需要安装**，macOS 用户跳过本节。
 
 ### Python 开发
 
 - **Python** —— Python 开发核心扩展：代码补全、调试、代码检查、格式化、单元测试与环境切换（微软官方，约 2.32 亿安装）。**安装时无需单独装 Pylance**：官方说明 Pylance（高性能语言服务器）与 Python Debugger 会由 Python 扩展自动安装，还新增了 Python Environments 环境管理扩展。
-- **Jupyter** —— 在 VS Code 中打开和运行 Jupyter Notebook（.ipynb），支持单元格运行、图表渲染，后续学数据分析/机器学习会用到（微软官方，约 1.08 亿安装）。需要在 WSL 中先装好 `jupyter` 包（`mamba install jupyter` 或 `conda install jupyter`）。
+- **Jupyter** —— 在 VS Code 中打开和运行 Jupyter Notebook（.ipynb），支持单元格运行、图表渲染，后续学数据分析/机器学习会用到（微软官方，约 1.08 亿安装）。需要先在终端里装好 `jupyter` 包（`mamba install jupyter` 或 `conda install jupyter`）。
 
 ### Git 协作
 
@@ -87,7 +100,7 @@ code .
 ### 安装提示
 
 - **方式一（推荐）**：打开 VS Code，按 `Ctrl+Shift+X` 打开扩展面板，直接搜索插件名称安装。
-- **方式二（命令行）**：在 WSL 终端中执行 `code --install-extension 插件ID`（在 WSL 侧执行即安装到 WSL 环境），例如：
+- **方式二（命令行）**：在终端中执行 `code --install-extension 插件ID`（Windows 用户在 WSL 终端执行即安装到 WSL 环境；macOS 用户在自带终端执行），例如：
 
 ```bash
 code --install-extension ms-python.python
@@ -97,17 +110,18 @@ code --install-extension ms-ceintl.vscode-language-pack-zh-hans
 
 ## 小结与练习
 
-**练习 1（动手）**：打开 WSL 终端，进入你的项目目录（如 `cd ~/my-project`），运行 `code .`，确认新窗口左下角显示「WSL: Ubuntu」标识。
+**练习 1（动手）**：打开终端，进入你的项目目录（如 `cd ~/my-project`），运行 `code .`：Windows 用户确认新窗口左下角显示「WSL: Ubuntu」标识；macOS 用户确认 VS Code 打开的是本机目录。
 
 **练习 2（动手）**：用「文件 → 打开文件夹…」打开本教程所在的文件夹，在资源管理器中练习新建、重命名、拖拽移动文件，并双击任一 `.md` 文件试试打开效果（Markdown 写法见 [Markdown 使用与 VS Code 插件](./Markdown-使用与VS-Code插件.md)）。
 
-**练习 3（动手）**：按 **Ctrl + 反引号键** 打开内置终端，运行 `python` 或 `pip` 试试，确认命令在 Linux 环境中执行。
+**练习 3（动手）**：按 **Ctrl + 反引号键**（macOS：**Cmd + 反引号键**）打开内置终端，运行 `python` 或 `pip` 试试；Windows 用户可同时确认命令在 Linux（WSL）环境中执行。
 
-**练习 4（自查）**：安装 VS Code 时为什么要勾选 **Add to PATH**？再用 `code --install-extension ms-python.python` 命令行方式安装一次 Python 扩展，说说它和"扩展面板搜索安装"有什么差别。
+**练习 4（自查）**：（Windows）安装 VS Code 时为什么要勾选 **Add to PATH**？（macOS）为什么要运行 "Install 'code' command in PATH"？再用 `code --install-extension ms-python.python` 命令行方式安装一次 Python 扩展，说说它和"扩展面板搜索安装"有什么差别。
 
 ## 参考官方文档
 
 - [VS Code 下载页](https://code.visualstudio.com/download)
+- [在 macOS 上安装 VS Code（官方文档，含 code 命令配置）](https://code.visualstudio.com/docs/setup/mac)
 - [在 WSL 中开发（VS Code 官方文档）](https://code.visualstudio.com/docs/remote/wsl)
 - [什么是 VS Code 工作区（官方文档）](https://code.visualstudio.com/docs/editing/workspaces/workspaces)
 - [VS Code 用户界面与资源管理器（官方文档）](https://code.visualstudio.com/docs/editing/userinterface)

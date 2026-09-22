@@ -1,6 +1,6 @@
 # 第五章导读：先认识 AI 编程代理，再开始动手
 
-> 前一章你已经装好了 WSL 与 Python 环境，这一章给终端配一个「AI 程序员」——OpenCode。它能在你的项目里读代码、改文件、运行命令，把「问 AI」升级成「让 AI 动手」。先混个脸熟，再照着路线图动手。
+> 前一章你已经装好了终端与 Python 环境（Windows 为 WSL、macOS 为自带终端 + Homebrew），这一章给终端配一个「AI 程序员」——OpenCode。它能在你的项目里读代码、改文件、运行命令，把「问 AI」升级成「让 AI 动手」。先混个脸熟，再照着路线图动手。
 
 ## 一、为什么要学这一章？
 
@@ -27,11 +27,11 @@
 
 ## 三、本章路线图（按顺序学）
 
-1. [在 WSL 内安装 OpenCode](./在WSL内安装OpenCode.md) —— 安装、访问 Windows 文件、初始化项目、配置模型、用 `/editor` 调用 Vim、能力边界与同类产品
+1. [安装 OpenCode（WSL / macOS）](./在WSL内安装OpenCode.md) —— 安装、访问 Windows 文件（WSL 专属）、初始化项目、配置模型、用 `/editor` 调用 Vim、能力边界与同类产品
 2. [常见报错检查](./常见报错检查.md) —— 命令找不到、模型不可用等问题的排查表
 3. [常用快捷键](./常用快捷键.md) —— 切换模式、发送换行、中断与撤销的按键，以及与 VS Code 快捷键冲突的处理
 
-> **前置条件**：先完成第四章的 [WSL 使用](../第四章-WSL与开发环境搭建/WSL-使用.md) 与 [Python 环境配置](../第四章-WSL与开发环境搭建/Python-环境配置.md)，并按第二章的 [AI-API 使用](../第二章-AI-API入门/AI-API-使用.md) 准备好一把 API 密钥。
+> **前置条件**：先完成第四章的终端与 Python 环境配置（Windows：[WSL 使用](../第四章-WSL与开发环境搭建/WSL-使用.md) 与 [Python 环境配置](../第四章-WSL与开发环境搭建/Python-环境配置.md)；macOS：[终端与 Homebrew](../第四章-WSL与开发环境搭建/终端与Homebrew-macOS.md) 与 [Python 环境配置（macOS 版）](../第四章-WSL与开发环境搭建/Python-环境配置-macOS.md)），并按第二章的 [AI-API 使用](../第二章-AI-API入门/AI-API-使用.md) 准备好一把 API 密钥。
 
 ## 四、学习建议
 

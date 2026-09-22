@@ -1,5 +1,7 @@
 # WSL 安装：给 Windows 装一个「轻量 Linux」
 
+> **本篇为 Windows 用户专属**。macOS 用户请跳过，改读[《终端与 Homebrew（macOS 版）》](./终端与Homebrew-macOS.md)。
+
 本课带你完成 WSL（Windows Subsystem for Linux）的安装。安装完成后，你就能在 Windows 里直接使用 Ubuntu 等 Linux 系统，为后续学习编程和 AI 工具打好基础。
 
 ### 本章学完你能做什么

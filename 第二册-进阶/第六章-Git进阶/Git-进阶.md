@@ -52,7 +52,7 @@ Git 就会自动无视这些文件，保证仓库干净、不泄露秘密。
 
 ## 四、用 OpenCode 帮你操作 Git（提示词示例）
 
-OpenCode 等 AI 编程代理（见第五章的 [《在 WSL 内安装 OpenCode》](../../第一册-基础/第五章-OpenCode编程代理/在WSL内安装OpenCode.md)）内置 bash 工具，可以直接替你执行 Git 命令。在 OpenCode 对话里粘贴下面的提示词即可，它会先列出要执行的命令征求你同意。
+OpenCode 等 AI 编程代理（见第五章的 [《安装 OpenCode（WSL / macOS）》](../../第一册-基础/第五章-OpenCode编程代理/在WSL内安装OpenCode.md)）内置 bash 工具，可以直接替你执行 Git 命令。在 OpenCode 对话里粘贴下面的提示词即可，它会先列出要执行的命令征求你同意。
 
 ### 1. 初始化仓库并首次提交
 
