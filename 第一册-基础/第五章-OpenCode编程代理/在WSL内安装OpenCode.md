@@ -1,6 +1,6 @@
 # 在 WSL 内安装 OpenCode
 
-> **前置条件**：请先完成[《Python 环境配置》](./Python-环境配置.md)，安装好 Miniforge/mamba/conda。OpenCode 在执行 Python 项目时需要调用已安装的 Python 环境。
+> **前置条件**：请先完成[《Python 环境配置》](../第四章-WSL与开发环境搭建/Python-环境配置.md)，安装好 Miniforge/mamba/conda。OpenCode 在执行 Python 项目时需要调用已安装的 Python 环境。
 
 ### 本章学完你能做什么
 
