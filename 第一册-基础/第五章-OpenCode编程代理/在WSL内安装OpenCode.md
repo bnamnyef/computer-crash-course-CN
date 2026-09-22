@@ -109,7 +109,59 @@ OpenCode 支持 **75+ 家 LLM 提供商**（OpenAI、Anthropic、DeepSeek 等）
 - **写功能**：按 `Tab` 键切换到 Plan 模式先让它出方案，确认后再按 `Tab` 切回 Build 模式执行。
 - **撤销修改**：不满意时运行 `/undo` 回退改动。
 
-## 七、能力边界：它能做什么、不能做什么
+## 七、用 Vim 写长消息（/editor）
+
+OpenCode 的输入框适合短句；要写很长的提示词时，可以交给**外部编辑器**：按 `Ctrl + X` 然后 `E`（等价于输入 `/editor`），编辑器会带着输入框里的内容打开，编辑完退出编辑器，内容自动回到输入框。用哪个编辑器由环境变量 `EDITOR` 决定——本节把它配置成 Vim（没学过 Vim 也没关系，按下面的步骤操作即可）。
+
+**第 1 步：确认 Vim 已安装**
+
+```bash
+vim --version     # 看到版本号即已安装
+```
+
+如果提示 `command not found`，先安装（详见选修第七章的 [《Vim 入门》](../../第二册-进阶/第七章-Vim/Vim-入门.md)）：
+
+```bash
+sudo apt update      # Windows/WSL（Ubuntu）
+sudo apt install vim
+```
+
+> macOS 用户：系统已自带 vim，通常无需安装；想用更新版本可执行 `brew install vim`。
+
+**第 2 步：把 `EDITOR` 设置为 vim**
+
+临时生效（只对当前终端窗口有效）：
+
+```bash
+export EDITOR=vim
+```
+
+永久生效：Windows 用户把这一行写进 `~/.bashrc`，macOS 用户写进 `~/.zshrc`，并让它立即生效（或重启终端）：
+
+```bash
+# Windows/WSL
+echo 'export EDITOR=vim' >> ~/.bashrc
+source ~/.bashrc
+
+# macOS
+echo 'export EDITOR=vim' >> ~/.zshrc
+source ~/.zshrc
+```
+
+配置完成后用 `echo $EDITOR` 验证，应输出 `vim`。
+
+**第 3 步：在 OpenCode 里使用**
+
+1. 在 OpenCode 输入框里打几句草稿（也可以留空）；
+2. 按 `Ctrl + X` 然后 `E` 打开 Vim；
+3. 按 `i` 进入插入模式写内容；写完后按 `Esc`，输入 `:wq` 保存并退出；
+4. 内容回到 OpenCode 输入框，按 `Enter` 发送。
+
+> Vim 里迷路时先按 `Esc` 回到普通模式；`:q!` 表示放弃修改、直接退出。建议先跟着选修第七章做一遍 `vimtutor` 再实战。
+>
+> 顺带一提：`/export` 导出会话也使用这个编辑器。
+
+## 八、能力边界：它能做什么、不能做什么
 
 ### 擅长（官方文档明确支持的能力）
 
@@ -168,6 +220,7 @@ OpenCode 支持 **75+ 家 LLM 提供商**（OpenAI、Anthropic、DeepSeek 等）
 - [OpenCode 内置工具与权限控制（Tools）](https://opencode.ai/docs/tools/)
 - [OpenCode Agent 模式与能力限制（Agents）](https://opencode.ai/docs/agents/)
 - [OpenCode MCP 外部工具集成（MCP Servers）](https://opencode.ai/docs/mcp-servers/)
+- [OpenCode TUI（斜杠命令与 /editor 外部编辑器配置）](https://opencode.ai/docs/tui/)
 
 ## 术语中英对照
 

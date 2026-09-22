@@ -73,7 +73,7 @@
 > 目标：在 WSL 里装好 AI 编程代理 OpenCode，配置模型提供商，掌握 Plan/Build 工作模式与能力边界，知道哪些环节需要自己把关。
 
 - [第五章导读：先认识 AI 编程代理](./第一册-基础/第五章-OpenCode编程代理/README.md) —— 名词铺垫、学习路线图（推荐先读）
-- [在 WSL 内安装 OpenCode](./第一册-基础/第五章-OpenCode编程代理/在WSL内安装OpenCode.md) —— 安装 AI 编程代理 OpenCode、配置模型提供商、能力边界与同类产品
+- [在 WSL 内安装 OpenCode](./第一册-基础/第五章-OpenCode编程代理/在WSL内安装OpenCode.md) —— 安装 AI 编程代理 OpenCode、配置模型提供商、用 `/editor` 调用 Vim、能力边界与同类产品
 - [常见报错检查](./第一册-基础/第五章-OpenCode编程代理/常见报错检查.md) —— 命令找不到、模型不可用等报错快速排查
 - [常用快捷键](./第一册-基础/第五章-OpenCode编程代理/常用快捷键.md) —— 模式切换、Leader 键组合、输入编辑与 VS Code 冲突处理
 
