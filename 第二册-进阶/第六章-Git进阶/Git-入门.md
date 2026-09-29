@@ -23,6 +23,8 @@ Git 是一个**分布式版本控制系统**（Distributed Version Control Syste
 
 它是当前程序员最离不开的工具之一——几乎每个开源项目都用它（Pro Git 官方手册定义："Git 是一个免费的、开源的分布式版本控制系统"）。
 
+对使用 AI 编程代理的人来说，Git 还多了一层用处：OpenCode 的 `/undo` 撤销文件改动时，底层就是用 Git 管理的——项目需要是 Git 仓库，撤销才可靠；而完整的历史本身就是项目的记忆，你或 AI 想回顾"某个功能是怎么来的"，`git log` 就是最好的资料（用法见第五章的[《安装 OpenCode》](../../第一册-基础/第五章-OpenCode编程代理/在WSL内安装OpenCode.md)）。
+
 ## 二、安装 Git
 
 **Windows 用户（WSL）**：在 WSL（Ubuntu）终端里用系统包管理器安装，一条命令搞定：
